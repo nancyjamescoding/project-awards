@@ -30,25 +30,20 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
+                    {% for project in projects %}
                     <div class="col-md-4">
                         <div class="card my-2">
-                            <img src="https://api.time.com/wp-content/uploads/2019/08/better-smartphone-photos.jpg" class= "img-thumbnail" alt="">
+                            <img src="{{project.image.url}}" class= "img-thumbnail" alt="">
                             <div class="card-body">
-                                <small>Myfirst website</small>
+                                <p>{{project.title}}</p>
+                                <!-- <small>Myfirst website</small> -->
                             </div>
-                            <a class= "btn btn-outline-dark btn-sm m-1" href="{% url 'viewawards' 1 %}">View</a>
+                            <a class= "btn btn-outline-dark btn-sm m-1" href="{% url  'viewawards' project.id %}">View</a>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img src="https://api.time.com/wp-content/uploads/2019/08/better-smartphone-photos.jpg" class= "img-thumbnail" alt="">
-                            <div class="card-body">
-                                <small>Myfirst website</small>
-                            </div>
-                            <a class= "btn btn-outline-dark btn-sm m-1" href="{% url 'viewawards' 2 %}">View</a>
-                        </div>
+                    {% endfor %}
                     </div>
-                    </div>
+
                 </div>
             </div>
         </div>

@@ -12,16 +12,15 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col">
-                <a class= "btn btn-dark my-3"href="{% url 'awards'%}">Go Back</a>
+                <a class= "btn btn-dark my-3"href="{% url 'awards' %}">Go Back</a>
                 <div style="height: 90vh;">
-                    <!-- <img style="max-width: 100%; max-height:100%;"src="{{photo.image.url}}"> -->
-                     <!-- <p>{{photo.description}} </p>s -->
-                     <img src="https://api.time.com/wp-content/uploads/2019/08/better-smartphone-photos.jpg" alt="">
+                    <img src="{{ project.image.url }}" style="max-width: 100%; max-height:100%;">
+                    <p>{{ project.caption}} project title </p>
                 </div>
 
             </div>
 
         </div>
-    </div>
+    </div> 
 </body>
-</html>
+</html
