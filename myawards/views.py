@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from email.mime import image
+from django.shortcuts import render, redirect
 from . models import Project
 
 # Create your views here.
@@ -12,4 +13,17 @@ def viewawards(request, pk):
     return render (request, 'myawards/myawards.html',{'projects': projects})
 
 def addawards(request):
-    return render (request, 'myawards/add.html')        
+    projects=Project.objects.all()
+
+    if request.method =='POST':
+        data =request.POST
+        image =request.FILES.get('image')
+        author = request.user
+
+        projects= Project.objects.create(
+            caption = data.get('caption', ""),
+            image = image, 
+            author = author,
+        )
+        return redirect('awards')
+    return render (request, 'myawards/add.html', {'projects': projects})        

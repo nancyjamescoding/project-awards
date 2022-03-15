@@ -8,14 +8,17 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Photo</title>
 </head>
+
 <body class="m-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col">
                 <a class= "btn btn-dark my-3"href="{% url 'awards' %}">Go Back</a>
                 <div style="height: 90vh;">
-                    <img src="{{ project.image.url }}" style="max-width: 100%; max-height:100%;">
-                    <p>{{ project.caption}} project title </p>
+                    <p>{{projects.title}}</p>
+                    <img src="{{ projects.image.url }}" style="max-width: 50%; max-height:50%;">
+                    <p >Decription</p>
+                    <p >{{ projects.caption}}  </p>
                 </div>
 
             </div>
