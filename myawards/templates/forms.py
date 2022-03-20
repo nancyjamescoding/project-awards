@@ -1,5 +1,5 @@
 from django import forms
-from  .models import ReviewRating
+from  ..models import ReviewRating
 class ReviewForms(  forms.ModelForm):
     class Meta:
         models = ReviewRating

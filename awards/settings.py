@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myawards.apps.MyawardsConfig',
+    'star_ratings'
 ]
 
 MIDDLEWARE = [
