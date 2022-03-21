@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+from decouple import config,Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +29,25 @@ SECRET_KEY = 'django-insecure-)kn7a12*om#-v!xeox&402+i5_f&%g_*n1@tot)04g)mho)4qx
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+MODE=config("MODE", default="dev")
+
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+# development
+
+DATABASES = {
+       'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+       )
+}
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+
 
 
 # Application definition
